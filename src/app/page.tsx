@@ -1,6 +1,24 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 function Page() {
+  const [showForm, setShowform] = useState(false);
+  if (showForm) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <form className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+          <h2 className="text-2xl font-bold mb-6">User Form</h2>
+          {/* Form fields go here */}
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#181b1b] to-[#23272f] p-4 relative overflow-hidden">
       {/* Background blurred rectangles */}
@@ -23,7 +41,7 @@ function Page() {
           </div>
         </div>
         {/* Right: Product Details */}
-        <div className="flex-1 flex flex-col justify-center items-start bg-[#23213a]/90 backdrop-blur-2xl rounded-3xl p-12 md:ml-[-60px] z-30 max-w-xl w-full shadow-xl border border-[#4b4b6b]/30 relative">
+        <div className="flex-1 flex flex-col justify-center items-start bg-[#23213a]/90 backdrop-blur-2xl rounded-3xl p-16 md:ml-[-60px] z-30 max-w-2xl w-full shadow-xl border border-[#4b4b6b]/30 relative">
           <h2 className="text-5xl font-bold text-white mb-6">Pi Box Basic</h2>
           <div className="mb-6">
             <h3 className="text-xl font-semibold text-white mb-3">
@@ -68,7 +86,10 @@ function Page() {
               </div>
             </div>
           </div>
-          <button className="w-full mt-2 bg-black text-white font-bold py-3 rounded-xl border border-white/40 hover:bg-white hover:text-black transition text-lg shadow-md">
+          <button
+            onClick={() => setShowform(true)}
+            className="w-full mt-2 bg-black text-white font-bold py-3 rounded-xl border border-white/40 hover:bg-white hover:text-black transition text-lg shadow-md"
+          >
             Buy Now
           </button>
         </div>
